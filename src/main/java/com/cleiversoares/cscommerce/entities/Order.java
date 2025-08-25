@@ -1,7 +1,6 @@
 package com.cleiversoares.cscommerce.entities;
 
 import jakarta.persistence.*;
-import org.apache.catalina.User;
 
 import java.time.Instant;
 
@@ -12,6 +11,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
     private OrderStatus orderStatus;
 
