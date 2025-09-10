@@ -1,5 +1,6 @@
 package com.cleiversoares.cscommerce.controllers;
 
+import com.cleiversoares.cscommerce.dto.ProdutoMinDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,8 +31,8 @@ public class ProductController {
 
     //    /products?size=12&page=0&sort=name,desc
     @GetMapping()
-    public ResponseEntity<Page<ProductDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) {
-        Page<ProductDTO> dto = service.findAll(name, pageable);
+    public ResponseEntity<Page<ProdutoMinDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) {
+        Page<ProdutoMinDTO> dto = service.findAll(name, pageable);
         return ResponseEntity.ok(dto);
     }
 

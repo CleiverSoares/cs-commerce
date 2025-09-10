@@ -1,6 +1,7 @@
 package com.cleiversoares.cscommerce.services;
 
 import com.cleiversoares.cscommerce.dto.ProductDTO;
+import com.cleiversoares.cscommerce.dto.ProdutoMinDTO;
 import com.cleiversoares.cscommerce.entities.Product;
 import com.cleiversoares.cscommerce.repositories.ProductRepository;
 import com.cleiversoares.cscommerce.services.exceptions.DatabaseException;
@@ -30,9 +31,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+    public Page<ProdutoMinDTO> findAll(String name, Pageable pageable) {
         Page<Product> result = repository.searchByName(name, pageable);
-        return result.map(x -> new ProductDTO(x));
+        return result.map(x -> new ProdutoMinDTO(x));
     }
 
     @Transactional
