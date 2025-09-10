@@ -3,6 +3,7 @@ package com.cleiversoares.cscommerce.dto;
 import com.cleiversoares.cscommerce.entities.Order;
 import com.cleiversoares.cscommerce.entities.OrderItem;
 import com.cleiversoares.cscommerce.entities.OrderStatus;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class OrderDTO {
 
     private PaymentDTO payment;
 
+    @NotEmpty(message = "O pedido deve conter ao menos um item")
     private List<OrderItemDTO> items = new ArrayList<>();
 
     public OrderDTO() {

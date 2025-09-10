@@ -65,9 +65,12 @@ public class Order {
         return status;
     }
 
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.status = orderStatus;
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
+//    public void setOrderStatus(OrderStatus orderStatus) {
+//        this.status = orderStatus;
+//    }
 
     public User getClient() {
         return client;
