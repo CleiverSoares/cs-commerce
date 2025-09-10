@@ -1,7 +1,9 @@
 package com.cleiversoares.cscommerce.services;
 
+import com.cleiversoares.cscommerce.dto.CategoryDTO;
 import com.cleiversoares.cscommerce.dto.ProductDTO;
 import com.cleiversoares.cscommerce.dto.ProdutoMinDTO;
+import com.cleiversoares.cscommerce.entities.Category;
 import com.cleiversoares.cscommerce.entities.Product;
 import com.cleiversoares.cscommerce.repositories.ProductRepository;
 import com.cleiversoares.cscommerce.services.exceptions.DatabaseException;
@@ -75,6 +77,12 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+        entity.getCategories().clear(); // Corrigido para usar o getter
+        for (CategoryDTO catDto : dto.getCategories()) {
+            Category cat = new Category();
+            cat.setId(catDto.getId());
+            entity.getCategories().add(cat);
+        }
     }
 
 }
