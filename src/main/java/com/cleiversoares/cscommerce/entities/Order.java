@@ -57,7 +57,11 @@ public class Order {
         this.moment = moment;
     }
 
-    public OrderStatus getOrderStatus() {
+//    public OrderStatus getOrderStatus() {
+//        return status;
+//    }
+
+    public OrderStatus getStatus() {
         return status;
     }
 
